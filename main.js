@@ -14,9 +14,11 @@ $(document).ready(function() {
           var source = $('#entry-template').html();
   			  var template = Handlebars.compile(source);
 
-          //object content
+          // save object content
           var content = risposta.response[i];
   				var html = template(content);
+
+          // var html = template(risposta.response[i]);
 
           //inserimento object in html
   			  $('.cds-container').append(html);
@@ -29,6 +31,27 @@ $(document).ready(function() {
       }
     }
   );
+
+  //BONUS
+
+  $('#scelta').click(function(){
+
+    var genere = $(this).val();
+
+    $('.cd').hide();
+
+
+    if (genere == 'All') {
+
+      $('.cd').show();
+
+    } else {
+
+      $('.cd.' + genere).show();
+
+    }
+
+  });
 
 });
 
